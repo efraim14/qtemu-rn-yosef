@@ -1,28 +1,29 @@
 import React from 'react'
+import Link from '../atoms/Link'
+import NavbarList from '../molecules/NavbarList'
 
 class Navbar extends React.Component {
+    state = {
+        leftLinks: [
+            { className: "nav-link", href: "#", content: "Create Meetup" },
+            { className: "nav-link", href: "#", content: "Explore" },
+        ],
+        rightLinks: [
+            { className: "nav-link", href: "#", content: "Login" },
+        ]
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">QTemu</a>
+                    <Link className="navbar-brand" href="#" content="QTemu" />
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="#">Create Meetup</a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="#">Explore</a>
-                        </li>
-                    </ul>
-                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Login</a>
-                        </li>
-                    </ul>
+                        <NavbarList items={this.state.leftLinks} className="me-auto" />
+                        <NavbarList items={this.state.rightLinks} className="ms-auto" />
                     </div>
                 </div>
             </nav>

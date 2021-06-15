@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar'
+import Navbar from './organisms/Navbar'
 import MeetupCard from './components/MeetupCard'
 class App extends React.Component {
   render() {
